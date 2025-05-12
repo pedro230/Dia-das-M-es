@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cartinha para Mamãe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scene">
+    <div class="envelope" onclick="abrirEnvelope()">
+      <div class="front">
+        <h2>Para minha mãe 💌</h2>
+      </div>
+      <div class="back">
+        <div class="carta">
+          <p>Você é a melhor mãe do mundo!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function abrirEnvelope() {
+      document.querySelector('.envelope').classList.toggle('virado');
+    }
+  </script>
+</body>
+</html>

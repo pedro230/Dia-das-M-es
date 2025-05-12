@@ -1,0 +1,109 @@
+/* Aplica imagem de fundo em toda a página */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: url('./imagens/coracoes.png.png') repeat;
+    background-size: 100px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+  }
+  
+  /* Cena com perspectiva */
+  .scene {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+  }
+  
+  /* Envelope rotacionável */
+  .envelope {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+    cursor: pointer;
+  }
+  
+  .envelope.virado {
+    transform: rotateY(180deg);
+  }
+  
+  .front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+  }
+  
+  .front {
+    background: #e74c3c;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 1em;
+  }
+  
+  .back {
+    background: #ffffff;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .carta {
+    background: #ffeaea;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    color: #b03a2e;
+    text-align: center;
+    animation: aparecer 1s ease forwards;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+  }
+  
+  .envelope.virado .carta {
+    animation: aparecer 1s ease 0.5s forwards;
+  }
+  
+  @keyframes aparecer {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsivo */
+  @media (max-width: 480px) {
+    .scene {
+      width: 95vw;
+      height: 65vw;
+    }
+  
+    .front {
+      font-size: 1.2em;
+      padding: 1.5em;
+    }
+  
+    .carta {
+      font-size: 1.3em;
+      padding: 2em;
+    }
+  }
